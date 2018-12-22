@@ -11,39 +11,30 @@
     <thead class="thead-light">
     <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Thời gian</th>
         <th scope="col">Handle</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>
-            <a href="{{ url('/category/1/edit') }}" class="btn btn-warning">Edit</a>
-            <a href="{{ url('/category/1/delete') }}" class="btn btn-danger">Delete</a>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>
-            <a href="{{ url('/category/2/edit') }}" class="btn btn-warning">Edit</a>
-            <a href="{{ url('/category/2/delete') }}" class="btn btn-danger">Delete</a>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>
-            <a href="{{ url('/category/3/edit') }}" class="btn btn-warning">Edit</a>
-            <a href="{{ url('/category/3/delete') }}" class="btn btn-danger">Delete</a>
-        </td>
-    </tr>
+
+
+    @foreach ($cats as $cat)
+        <tr>
+            <th scope="row">{{ $cat->id }}</th>
+            <td>{{ $cat->name }}</td>
+            <td>{{ $cat->created_at }}</td>
+            <td>
+                <a href="{{ url('/category/'.$cat->id.'/edit') }}" class="btn btn-warning">Edit</a>
+                <a href="{{ url('/category/'.$cat->id.'/delete') }}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    @endforeach
+
     </tbody>
 </table>
+
+{{ dump($cats) }}
+{{--{{ dd($cats) }}--}}
+{{--{{ var_dump($cats) }}--}}
 @endsection

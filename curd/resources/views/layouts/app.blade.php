@@ -34,6 +34,12 @@
 <body>
 
 <div class="container">
+
+    <h2>
+        <a class="btn btn-info" href="{{ url('/') }}" style="color: black">Danh mục</a>
+        <a class="btn btn-info" href="{{ url('/product') }}" style="color: black">Sản phẩm</a>
+    </h2>
+
     <h1>@yield('title')</h1>
     <div class="row">
         <div class="col-sm-12">
